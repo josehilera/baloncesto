@@ -10,7 +10,7 @@ jobs:
       - name: pruebas-unitarias
         run: mvn test
       - name: empaquetar
-        run: echo "empaquetar"
+        run: mvn package -DskipTests=true
 
   test:
     needs: build
