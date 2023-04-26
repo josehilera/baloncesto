@@ -54,7 +54,12 @@ jobs:
         uses: actions/checkout@v3
       - name: Crear el archivo .war
         run: |
-          mvn package -DskipTests=true
+          mvn package -DskipTests=true 
+      - name: Aprobación manual
+        uses: trstringer/manual-approval@v1
+        with:
+          secret: ${{ secrets.TOKEN }}
+          approvers: josehilera
       - name: Desplegar en Azure
         uses: Azure/webapps-deploy@v2
         with:
